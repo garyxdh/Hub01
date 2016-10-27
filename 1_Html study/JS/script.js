@@ -99,5 +99,7 @@ app.controller('homeController', function ($scope) {
    $scope.uname = "demouser";
     $scope.testMe = function () {
         $scope.uname += "123";
+        $scope.uname += "456";
+        $scope.uname += "789";
     };
 });
