@@ -5,7 +5,27 @@
         <!link rel="stylesheet" href="css/figure.css" />
         <!link rel="stylesheet" type="text/css" href="css/mod2_semantic.css" media="screen" />
         <link rel="stylesheet" href="css/style.css" />
+
+        <link rel="stylesheet" href="css/remodal.css">
+        <link rel="stylesheet" href="css/remodal-default-theme.css">
+         <style>
+            .remodal-bg.with-red-theme.remodal-is-opening,
+            .remodal-bg.with-red-theme.remodal-is-opened {
+            filter: none;
+            }
+
+            .remodal-overlay.with-red-theme {
+            background-color: #f44336;
+            }
+
+            .remodal.with-red-theme {
+            background: #fff;
+            }
+        </style>
         
+        <!script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script type="text/javascript" src="JS/script.js"></script>
     </head>
     <body bgcolor="lightblue">
         Welcome
@@ -150,7 +170,62 @@
             Test Text
         </canvas>
 
-        <script type="text/javascript" src="JS/script.js"></script>
+        
+
+        <button type="button" onclick="testMessage()">Send Test Message</button>
+
+        <!AngularJS框架,同步更新text里面的内容>
+        <div ng-app="basicApp" ng-controller="homeController">
+            <label>Username:</label>
+            <input type="text" ng-model="uname" placeholder="Enter username" />
+            <hr />
+            <h2>Hello {{uname}}</h2>
+            <button type="button" ng-click="testMe()">Test Me</button>
+        </div>
+
+
+
+        <!jQuery，Ramodal>
+        <a href="#modal">Modal №1</a><br>
+        <a href="#modal2">Modal №2</a>
+
+
+        <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+            <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+            
+            <div>
+                <h2 id="modal1Title">Remodal</h2>
+                <p id="modal1Desc">
+                Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin
+                with declarative state notation and hash tracking.
+                </p>
+            
+            </div>
+             <br>
+            <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+            <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
+        
+        <div data-remodal-id="modal2" role="dialog" aria-labelledby="modal2Title" aria-describedby="modal2Desc">
+            <div>
+                <h2 id="modal2Title">Another one window</h2>
+                <p id="modal2Desc">
+                Hello!
+                </p>
+            </div>
+            <br>
+            <button data-remodal-action="confirm" class="remodal-confirm">Hello!</button>
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="JS/jquery.min.js"><\/script>')</script>
+            <script src="JS/remodal.js"></script>
+
+            <script>
+                $('[data-remodal-id=modal2]').remodal({
+                    modifier: 'with-red-theme'
+                });
+            </script>
+        </div>
     </body>
 
 </html>

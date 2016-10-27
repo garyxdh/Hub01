@@ -45,7 +45,7 @@ function save_Radio()
 }
 
 
-var canvas = document.getElementById("demoCanvas");
+/*var canvas = document.getElementById("demoCanvas");
 var context = canvas.getContext("2d");
 
 context.fillStyle = "#A9B0B3";
@@ -72,4 +72,32 @@ context.strokeStyle = "#20293F";
 
 context.font = "78px Segoe UI";
 context.fillText("Hello", 190, 230);
-context.strokeText("World", 190, 310);
+context.strokeText("World", 190, 310);*/
+
+
+//var socket = new WebSocket('ws://echo.websocket.org');
+var socket = new WebSocket('ws://echo.websocket.org/');
+
+socket.onopen = function () {
+    console.log('Our socket has been opened!');
+}
+
+socket.onmessage = function (event) {
+    window.alert(event.data);
+}
+
+function testMessage () {
+
+    socket.send("Hello World!");
+    //socket.close();
+    //socket = new WebSocket('ws://echo.websocket.org/');
+}
+
+
+var app = angular.module('basicApp', []);
+app.controller('homeController', function ($scope) {
+   $scope.uname = "demouser";
+    $scope.testMe = function () {
+        $scope.uname += "123";
+    };
+});
