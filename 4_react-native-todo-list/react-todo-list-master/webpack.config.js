@@ -7,11 +7,11 @@ module.exports = {
         filename:'bundle.js',
         publicPath:''
     },
-    moudle:{
-        loders:[
+    module:{
+        loaders:[
             {
                 test: /\.js$/,
-                loders: 'babel-loader',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
                     presets: ['react', 'es2015']
